@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://mods/RarityTiers/scripts/mod_load.gd" type="Script" id=1]
+[ext_resource path="res://mods/RarityTiers/translations/mod_translation_texts.en.translation" type="Translation" id=2]
+
+[resource]
+script = ExtResource( 1 )
+id = "lucioss_rarity_tiers"
+name = "Rarity Tiers Revamped"
+version_code = 1
+version_string = "1.0.0"
+author = "Lucioss"
+save_file_format_tag = ""
+save_file_format_tag_version = 0
+network_protocol_tag = ""
+modified_files = [ "res://data/BaseItem.gd", "res://data/item_scripts/StickerItem.gd", "res://data/StickerAttribute.gd", "res://global/ItemFactory.gd", "res://battle/ui/MoveButton.gd", "res://data/sticker_attributes/ap_refund_all.tres", "res://data/sticker_attributes/compatibility.tres" ]
+modified_dirs = [  ]
+translations = [ ExtResource( 2 ) ]
