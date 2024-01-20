@@ -4,7 +4,6 @@ var baseitem_patch    = preload("res://mods/RarityTiers/scripts/BaseItem_patch.g
 var stickeritem_patch    = preload("res://mods/RarityTiers/scripts/StickerItem_patch.gd")
 var itemfactory_patch = preload("res://mods/RarityTiers/scripts/ItemFactory_patch.gd")
 var stickerattribute_patch = preload("res://mods/RarityTiers/scripts/StickerAttribute_patch.gd")
-var raritycolor_patch = preload("res://mods/RarityTiers/scripts/_RarityColor_patch.gd")
 
 
 func _init():
@@ -12,7 +11,6 @@ func _init():
 	stickeritem_patch.patch()
 	itemfactory_patch.patch()
 	stickerattribute_patch.patch()
-	#raritycolor_patch.patch()
 	
 	
 	var compatibility = preload("res://data/sticker_attributes/compatibility.tres")
