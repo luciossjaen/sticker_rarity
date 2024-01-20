@@ -72,11 +72,11 @@ static func get_code(block_name:String)->String:
 	"""
 	
 	blocks["bootleg_rarities"] = """
-	{weight = 0.100, value = BaseItem.Rarity.RARITY_COMMON}, 
-	{weight = 0.100, value = BaseItem.Rarity.RARITY_UNCOMMON}, 
-	{weight = 0.100, value = BaseItem.Rarity.RARITY_RARE},
+	{weight = 0.050, value = BaseItem.Rarity.RARITY_COMMON}, 
+	{weight = 0.050, value = BaseItem.Rarity.RARITY_UNCOMMON}, 
+	{weight = 0.050, value = BaseItem.Rarity.RARITY_RARE},
 	{weight = 0.400, value = BaseItem.Rarity.RARITY_EPIC},
-	{weight = 0.300, value = BaseItem.Rarity.RARITY_LEGENDARY}
+	{weight = 0.450, value = BaseItem.Rarity.RARITY_LEGENDARY}
 	"""
 	
 	blocks["max_attributes"] = """

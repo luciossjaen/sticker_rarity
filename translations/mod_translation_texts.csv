@@ -1,3 +1,10 @@
 id,en
 ITEM_NAME_RARITY_3,{item_name} (Epic)
 ITEM_NAME_RARITY_4,{item_name} (Legendary)
+MOVE_ATTRIBUTE_TREASURE_TROVE,{chance}% Chance to find treasure after use
+MOVE_ATTRIBUTE_PASSIVE_WALL,{chance}% Chance to create a weak elemental wall after use
+MOVE_ATTRIBUTE_DURATION_REDUCER,{chance}% Chance to reduce status effect durations of target by 1
+MOVE_ATTRIBUTE_DURATION_EXTENDER,{chance}% Chance to extend own status effect durations by 1
+MOVE_SANDSTORM_TOAST_TIMERS_EXTENDED,"TIMERS EXTENDED"
+MOVE_ATTRIBUTE_ELEMENTAL_RESISTANCE,{chance}% resistance from {type}-type damage
+MOVE_ATTRIBUTE_REACTION_NEGATOR,{chance}% Chance to negate reactions when taking damage

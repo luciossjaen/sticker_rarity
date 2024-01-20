@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://mods/sticker_tiers/data/sticker_attribute_scripts/ElementalResistanceAttribute.gd" type="Script" id=1]
+[ext_resource path="res://data/elemental_types/lightning.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+weight = 1.0
+rarity = 2
+resist_type = ExtResource( 2 )
+toast_message = "MOVE_ELEMENTAL_RESISTANCE_TOAST"
+chance_min = 1
+chance_max = 10
+chance_mode = 5
