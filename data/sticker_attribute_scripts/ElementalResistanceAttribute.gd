@@ -26,7 +26,7 @@ func taking_damage(damage:Damage):
 		return 
 	
 	damage.damage = int(max(1, damage.damage * (100 - chance) / 100))
-	damage.types.erase(resist_type)
+	#damage.types.erase(resist_type)
 	
 	if damage.toast_message == "":
 		damage.toast_message = toast_message

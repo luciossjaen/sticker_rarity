@@ -16,9 +16,11 @@ func get_description(move)->String:
 
 func notify(move, fighter, id:String, args):
 	if id == "damage_starting" and args.fighter == fighter:
-		remove_reaction(args.damage)
+		remove_reaction(args.damage, fighter)
 
-func remove_reaction(damage:Damage):
+func remove_reaction(damage:Damage, fighter):
+	if fighter.battle.rand.rand_int(100) >= chance:
+		return 
 	if damage.damage <= 0:
 		return 
 		

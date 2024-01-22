@@ -4,20 +4,19 @@ var baseitem_patch    = preload("res://mods/sticker_tiers/scripts/BaseItem_patch
 var stickeritem_patch    = preload("res://mods/sticker_tiers/scripts/StickerItem_patch.gd")
 var itemfactory_patch = preload("res://mods/sticker_tiers/scripts/ItemFactory_patch.gd")
 var stickerattribute_patch = preload("res://mods/sticker_tiers/scripts/StickerAttribute_patch.gd")
+var daynightenvironment_patch = preload("res://mods/sticker_tiers/scripts/DayNightEnvironment_patch.gd")
 
 
 func _init():
-	print("loaded")
 	baseitem_patch.patch()
 	stickeritem_patch.patch()
 	itemfactory_patch.patch()
 	stickerattribute_patch.patch()
+	daynightenvironment_patch.patch()
 	
 	# =========================
 	# ToDo:
 	# - check how weather is added to battles and how we can adjust calculations based on weather
-	# - add sandstorm weather to battles
-	# - test TOAST for elemental reaction resistance trigger
 	#
 	# =========================
 	

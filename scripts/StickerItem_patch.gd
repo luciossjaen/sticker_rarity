@@ -13,8 +13,6 @@ static func patch():
 		
 
 	var code_lines:Array = patched_script.source_code.split("\n")
-	print(code_lines[0])
-	print(code_lines[1])
 	
 	var class_name_index = code_lines.find("class_name StickerItem")
 	if class_name_index >= 0:
