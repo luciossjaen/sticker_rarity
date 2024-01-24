@@ -26,11 +26,10 @@ func _init():
 	battlemove_patch.patch()
 	
 	# =========================
-	# adding and updating attributes
+	# updates existing attributes
 	# =========================
 	
 	update_existing_attribute_rarities()
-	add_new_attributes()
 	
 	
 func update_existing_attribute_rarities():
@@ -64,6 +63,20 @@ func update_existing_attribute_rarities():
 	#ap_all.rarity = 4
 	#ap_all.chance_min = 5
 	#ap_all.chance_max = 10
+					
+func on_title_screen():
+	# adds compatibility to Sticker Recycle Bonus - Mod to support all newly added attributes
+	if DLC.has_mod("sticker_recycle_bonus", 0):
+		var core_dictionary = Datatables.load("res://mods/sticker_tiers/_compatibility/sticker_recycle_bonus/items/").table
+		
+		
+		for core in core_dictionary.keys():
+			DLC.mods_by_id["sticker_recycle_bonus"].core_dictionary[core] = core_dictionary[core]
+			DLC.mods_by_id["sticker_recycle_bonus"].searchable_cores[core_dictionary[core].template_path] = core
+	
+	# adds new attributes to system
+	add_new_attributes()
+	
 	
 func add_new_attributes():
 	var attribute_profiles = [
@@ -87,10 +100,26 @@ func add_new_attributes():
 				if attribute.attribute_profile.has(profile):
 					profile.attributes.push_back(attribute)
 					
-func on_title_screen():
-#	if DLC.has_mod("sticker_recycle_bonus", 1):
-#		DLC.mods_by_id["sticker_recycle_bonus"].searchable_cores.append("")
-	pass
+					# if Sticker Recycle Bonus - Mod exists, cultivate needed information into mod data
+					if DLC.has_mod("sticker_recycle_bonus", 0):
+						DLC.mods_by_id["sticker_recycle_bonus"].attribute_dictionary[profile].push_back(attribute.instance())
+	
+	if DLC.has_mod("sticker_recycle_bonus", 0):					
+		var stickercoresystem_patch = preload("res://mods/sticker_tiers/_compatibility/sticker_recycle_bonus/scripts/StickerCoreSystem_patch.gd")
+		stickercoresystem_patch.patch()
+		print("patched")
+		
+func get_rarity_colors():
+	var rarity_colours:Dictionary = {
+		BaseItem.Rarity.RARITY_COMMON:Color.black, 
+		BaseItem.Rarity.RARITY_UNCOMMON:Color("225d31"), 
+		BaseItem.Rarity.RARITY_RARE:Color("35379d"),
+		BaseItem.Rarity.RARITY_EPIC:Color("BA55D3"),
+		BaseItem.Rarity.RARITY_LEGENDARY:Color("DAA520")
+	}
+	
+	return rarity_colours
+	
 	
 	
 	

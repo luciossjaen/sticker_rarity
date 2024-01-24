@@ -59,13 +59,7 @@ enum Rarity{RARITY_COMMON, RARITY_UNCOMMON, RARITY_RARE, RARITY_EPIC, RARITY_LEG
 	"""
 	
 	blocks["new_rarity_colours"] = """
-	var rarity_colours:Dictionary = {
-		Rarity.RARITY_COMMON:Color.black, 
-		Rarity.RARITY_UNCOMMON:Color("225d31"), 
-		Rarity.RARITY_RARE:Color("35379d"),
-		Rarity.RARITY_EPIC:Color("BA55D3"),
-		Rarity.RARITY_LEGENDARY:Color("DAA520")
-	}
+	var rarity_colours = DLC.mods_by_id["lucioss_rarity_tiers"].get_rarity_colors()
 	return rarity_colours.get(rarity, Color.black)
 	"""
 
