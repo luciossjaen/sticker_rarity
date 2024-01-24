@@ -13,10 +13,8 @@ static func patch():
 
 	var code_lines:Array = patched_script.source_code.split("\n")
 	
-	print("color replace")
 	var code_index = code_lines.find("		var html_color = rare_color if mod_attribute.rarity == BaseItem.Rarity.RARITY_RARE else uncommon_color")
 	if code_index >= 0:
-		print("replaced 1")
 		# adds epic and legendary colors to sticker core system (mod)
 		code_lines.insert(code_index+1,get_code("choose_effect_colors"))
 		code_lines.remove(code_index)
@@ -24,7 +22,6 @@ static func patch():
 	# we have to do it twice to replace both appearances of the color assignment	
 	code_index = code_lines.find("		var html_color = rare_color if mod_attribute.rarity == BaseItem.Rarity.RARITY_RARE else uncommon_color")
 	if code_index >= 0:
-		print("replaced 2")
 		# adds epic and legendary colors to sticker core system (mod)
 		code_lines.insert(code_index+1,get_code("choose_effect_colors"))
 		code_lines.remove(code_index)

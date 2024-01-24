@@ -17,7 +17,6 @@ func getTotalModifier(weather, element_types)->float:
 	
 func getWeatherState(weather):
 	for state in weather_states:
-		print(state.weather.name)
 		if state.weather == weather:
 			return state
 	return null
