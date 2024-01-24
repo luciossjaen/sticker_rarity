@@ -5,142 +5,92 @@ var stickeritem_patch    = preload("res://mods/sticker_tiers/scripts/StickerItem
 var itemfactory_patch = preload("res://mods/sticker_tiers/scripts/ItemFactory_patch.gd")
 var stickerattribute_patch = preload("res://mods/sticker_tiers/scripts/StickerAttribute_patch.gd")
 var daynightenvironment_patch = preload("res://mods/sticker_tiers/scripts/DayNightEnvironment_patch.gd")
-
+var battlemove_patch = preload("res://mods/sticker_tiers/scripts/BattleMove_patch.gd")
 
 func _init():
+	# =========================
+	# core file patches
+	# =========================
+	
+	# adds new available rarity and ratity colors to items
 	baseitem_patch.patch()
+	# adds a value to the new rarities for stickers
 	stickeritem_patch.patch()
+	# adds a weight for new attribute rarities
 	itemfactory_patch.patch()
+	# adds support for new rarities to attributes
 	stickerattribute_patch.patch()
+	# adds visuals of new sandstorm weather to system
 	daynightenvironment_patch.patch()
+	# adds elemental weather dis/advantages tables to battle
+	battlemove_patch.patch()
 	
 	# =========================
-	# ToDo:
-	# - check how weather is added to battles and how we can adjust calculations based on weather
-	#
+	# adding and updating attributes
 	# =========================
 	
-	# =========================
-	# updates all existing applicable attributes to apply epic and legendary rarity
-	# =========================
-	var compatibility = preload("res://data/sticker_attributes/compatibility.tres")
-	#compatibility.rarity = 3
+	update_existing_attribute_rarities()
+	add_new_attributes()
 	
-	var ap_all = preload("res://data/sticker_attributes/ap_refund_all.tres")
-	#ap_all.rarity = 3
 	
-	# =========================
-	# updates all new attributes to apply epic and legendary rarity, if applicable
-	# =========================
-	var treasure_trove = preload("res://mods/sticker_tiers/data/sticker_attributes/treasure_trove.tres")
-	treasure_trove.rarity = 4
-	var passive_wall = preload("res://mods/sticker_tiers/data/sticker_attributes/passive_wall.tres")
-	passive_wall.rarity = 3
-	var duration_reducer = preload("res://mods/sticker_tiers/data/sticker_attributes/duration_reducer.tres")
-	duration_reducer.rarity = 3
-	var duration_extender = preload("res://mods/sticker_tiers/data/sticker_attributes/duration_extender.tres")
-	duration_extender.rarity = 3
-	var reaction_negator = preload("res://mods/sticker_tiers/data/sticker_attributes/reaction_negator.tres")
-	reaction_negator.rarity = 4
-	
-	var elemental_resistance_air = preload("res://mods/sticker_tiers/data/sticker_attributes/elemental_resistance_air.tres")
-	elemental_resistance_air.rarity = 4
-	var elemental_resistance_astral = preload("res://mods/sticker_tiers/data/sticker_attributes/elemental_resistance_astral.tres")
-	elemental_resistance_astral.rarity = 4
-	var elemental_resistance_beast = preload("res://mods/sticker_tiers/data/sticker_attributes/elemental_resistance_beast.tres")
-	elemental_resistance_beast.rarity = 4
-	var elemental_resistance_earth = preload("res://mods/sticker_tiers/data/sticker_attributes/elemental_resistance_earth.tres")
-	elemental_resistance_earth.rarity = 4
-	var elemental_resistance_fire = preload("res://mods/sticker_tiers/data/sticker_attributes/elemental_resistance_fire.tres")
-	elemental_resistance_fire.rarity = 4
-	var elemental_resistance_glass = preload("res://mods/sticker_tiers/data/sticker_attributes/elemental_resistance_glass.tres")
-	elemental_resistance_glass.rarity = 4
-	var elemental_resistance_glitter = preload("res://mods/sticker_tiers/data/sticker_attributes/elemental_resistance_glitter.tres")
-	elemental_resistance_glitter.rarity = 4
-	var elemental_resistance_ice = preload("res://mods/sticker_tiers/data/sticker_attributes/elemental_resistance_ice.tres")
-	elemental_resistance_ice.rarity = 4
-	var elemental_resistance_lightning = preload("res://mods/sticker_tiers/data/sticker_attributes/elemental_resistance_lightning.tres")
-	elemental_resistance_lightning.rarity = 4
-	var elemental_resistance_metal = preload("res://mods/sticker_tiers/data/sticker_attributes/elemental_resistance_metal.tres")
-	elemental_resistance_metal.rarity = 4
-	var elemental_resistance_plant = preload("res://mods/sticker_tiers/data/sticker_attributes/elemental_resistance_plant.tres")
-	elemental_resistance_plant.rarity = 4
-	var elemental_resistance_plastic = preload("res://mods/sticker_tiers/data/sticker_attributes/elemental_resistance_plastic.tres")
-	elemental_resistance_plastic.rarity = 4
-	var elemental_resistance_poison = preload("res://mods/sticker_tiers/data/sticker_attributes/elemental_resistance_poison.tres")
-	elemental_resistance_poison.rarity = 4
-	var elemental_resistance_water = preload("res://mods/sticker_tiers/data/sticker_attributes/elemental_resistance_water.tres")
-	elemental_resistance_water.rarity = 4
-	
-	# =========================
-	# add all new attributes to corresponding attribute profiles
-	# =========================
-	var attribute_profile_attack = preload("res://data/sticker_attribute_profiles/attack.tres")
-	attribute_profile_attack.attributes.push_back(treasure_trove)
-	attribute_profile_attack.attributes.push_back(passive_wall)
-	attribute_profile_attack.attributes.push_back(duration_reducer)
-	attribute_profile_attack.attributes.push_back(duration_extender)
-	attribute_profile_attack.attributes.push_back(reaction_negator)
+func update_existing_attribute_rarities():
+	var ap_one = preload("res://data/sticker_attributes/ap_refund_1.tres")
+	#ap_one.rarity = 3
+	var auto_ending = preload("res://data/sticker_attributes/auto_use_round_ending.tres")
+	#auto_ending.rarity = 3
+	var auto_after_attack = preload("res://data/sticker_attributes/auto_use_user_attack.tres")
+	#auto_after_attack.rarity = 3
 
-	var attribute_profile_misc = preload("res://data/sticker_attribute_profiles/misc.tres")
-	attribute_profile_misc.attributes.push_back(treasure_trove)
-	attribute_profile_misc.attributes.push_back(passive_wall)
-	attribute_profile_misc.attributes.push_back(duration_extender)
-	attribute_profile_misc.attributes.push_back(reaction_negator)
+	var extra_slot = preload("res://data/sticker_attributes/extra_slot.tres")
+	#extra_slot.rarity = 3
+	var extra_hit = preload("res://data/sticker_attributes/extra_hit.tres")
+	#extra_hit.rarity = 3
+	var multitarget = preload("res://data/sticker_attributes/multitarget.tres")
+	#multitarget.rarity = 3
+	var spec_pass_evasion = preload("res://data/sticker_attributes/specialization_passive_evasion.tres")
+	#spec_pass_evasion.rarity = 3
+	var stat_pass_evasion = preload("res://data/sticker_attributes/stat_passive_evasion.tres")
+	#stat_pass_evasion.rarity = 3
+	var stat_prio_chance = preload("res://data/sticker_attributes/stat_priority_chance.tres")
+	#stat_prio_chance.rarity = 3
+	var use_again = preload("res://data/sticker_attributes/use_again.tres")
+	#use_again.rarity = 3
+	var use_random = preload("res://data/sticker_attributes/use_random.tres")
+	#use_random.rarity = 3
 	
-	var attribute_profile_status = preload("res://data/sticker_attribute_profiles/status.tres")
-	attribute_profile_status.attributes.push_back(treasure_trove)
-	attribute_profile_status.attributes.push_back(passive_wall)
-	attribute_profile_status.attributes.push_back(duration_extender)
-	attribute_profile_status.attributes.push_back(reaction_negator)
+	var compatibility = preload("res://data/sticker_attributes/compatibility.tres")
+	#compatibility.rarity = 4
+	var ap_all = preload("res://data/sticker_attributes/ap_refund_all.tres")
+	#ap_all.rarity = 4
+	#ap_all.chance_min = 5
+	#ap_all.chance_max = 10
 	
-	var attribute_profile_pure_passive = preload("res://data/sticker_attribute_profiles/pure_passive.tres")
-	attribute_profile_pure_passive.attributes.push_back(elemental_resistance_air)
-	attribute_profile_pure_passive.attributes.push_back(elemental_resistance_astral)
-	attribute_profile_pure_passive.attributes.push_back(elemental_resistance_beast)
-	attribute_profile_pure_passive.attributes.push_back(elemental_resistance_earth)
-	attribute_profile_pure_passive.attributes.push_back(elemental_resistance_fire)
-	attribute_profile_pure_passive.attributes.push_back(elemental_resistance_glass)
-	attribute_profile_pure_passive.attributes.push_back(elemental_resistance_glitter)
-	attribute_profile_pure_passive.attributes.push_back(elemental_resistance_ice)
-	attribute_profile_pure_passive.attributes.push_back(elemental_resistance_lightning)
-	attribute_profile_pure_passive.attributes.push_back(elemental_resistance_metal)
-	attribute_profile_pure_passive.attributes.push_back(elemental_resistance_plant)
-	attribute_profile_pure_passive.attributes.push_back(elemental_resistance_plastic)
-	attribute_profile_pure_passive.attributes.push_back(elemental_resistance_poison)
-	attribute_profile_pure_passive.attributes.push_back(elemental_resistance_water)
+func add_new_attributes():
+	var attribute_profiles = [
+		preload("res://data/sticker_attribute_profiles/attack.tres"),
+		preload("res://data/sticker_attribute_profiles/misc.tres"),
+		preload("res://data/sticker_attribute_profiles/pure_passive.tres"),
+		preload("res://data/sticker_attribute_profiles/status.tres"),
+		preload("res://data/sticker_attribute_profiles/pure_passive_attack.tres"),
+		preload("res://data/sticker_attribute_profiles/pure_passive_status.tres")
+	]
 	
-	var attribute_profile_pure_passive_attack = preload("res://data/sticker_attribute_profiles/pure_passive_attack.tres")
-	attribute_profile_pure_passive_attack.attributes.push_back(elemental_resistance_air)
-	attribute_profile_pure_passive_attack.attributes.push_back(elemental_resistance_astral)
-	attribute_profile_pure_passive_attack.attributes.push_back(elemental_resistance_beast)
-	attribute_profile_pure_passive_attack.attributes.push_back(elemental_resistance_earth)
-	attribute_profile_pure_passive_attack.attributes.push_back(elemental_resistance_fire)
-	attribute_profile_pure_passive_attack.attributes.push_back(elemental_resistance_glass)
-	attribute_profile_pure_passive_attack.attributes.push_back(elemental_resistance_glitter)
-	attribute_profile_pure_passive_attack.attributes.push_back(elemental_resistance_ice)
-	attribute_profile_pure_passive_attack.attributes.push_back(elemental_resistance_lightning)
-	attribute_profile_pure_passive_attack.attributes.push_back(elemental_resistance_metal)
-	attribute_profile_pure_passive_attack.attributes.push_back(elemental_resistance_plant)
-	attribute_profile_pure_passive_attack.attributes.push_back(elemental_resistance_plastic)
-	attribute_profile_pure_passive_attack.attributes.push_back(elemental_resistance_poison)
-	attribute_profile_pure_passive_attack.attributes.push_back(elemental_resistance_water)
-	
-	var attribute_profile_pure_passive_status = preload("res://data/sticker_attribute_profiles/pure_passive_status.tres")
-	attribute_profile_pure_passive_status.attributes.push_back(elemental_resistance_air)
-	attribute_profile_pure_passive_status.attributes.push_back(elemental_resistance_astral)
-	attribute_profile_pure_passive_status.attributes.push_back(elemental_resistance_beast)
-	attribute_profile_pure_passive_status.attributes.push_back(elemental_resistance_earth)
-	attribute_profile_pure_passive_status.attributes.push_back(elemental_resistance_fire)
-	attribute_profile_pure_passive_status.attributes.push_back(elemental_resistance_glass)
-	attribute_profile_pure_passive_status.attributes.push_back(elemental_resistance_glitter)
-	attribute_profile_pure_passive_status.attributes.push_back(elemental_resistance_ice)
-	attribute_profile_pure_passive_status.attributes.push_back(elemental_resistance_lightning)
-	attribute_profile_pure_passive_status.attributes.push_back(elemental_resistance_metal)
-	attribute_profile_pure_passive_status.attributes.push_back(elemental_resistance_plant)
-	attribute_profile_pure_passive_status.attributes.push_back(elemental_resistance_plastic)
-	attribute_profile_pure_passive_status.attributes.push_back(elemental_resistance_poison)
-	attribute_profile_pure_passive_status.attributes.push_back(elemental_resistance_water)
+	# reads and adds new attributes to their corresponding (mapped) profiles	
+	var new_attributes = Datatables.load("res://mods/sticker_tiers/data/sticker_attributes/").table.values()
+	for attribute in new_attributes:
+		
+		# ignores artificial attributes
+		if attribute.weight > 0:
+			# updates StickerAttribute rarity to provided rarity
+			attribute.rarity = attribute.new_rarity
+			for profile in attribute_profiles:
+				if attribute.attribute_profile.has(profile):
+					profile.attributes.push_back(attribute)
+					
+func on_title_screen():
+#	if DLC.has_mod("sticker_recycle_bonus", 1):
+#		DLC.mods_by_id["sticker_recycle_bonus"].searchable_cores.append("")
+	pass
 	
 	
 	

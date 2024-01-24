@@ -1,6 +1,6 @@
 static func patch():
-	var script_path = "res://nodes/day_night_cycle/DayNightEnvironment.gd"
-	var patched_script : GDScript = preload("res://nodes/day_night_cycle/DayNightEnvironment.gd")
+	var script_path = "res://data/BattleMove.gd"
+	var patched_script : GDScript = preload("res://data/BattleMove.gd")
 
 	if !patched_script.has_source_code():
 		var file : File = File.new()
@@ -12,12 +12,15 @@ static func patch():
 		file.close()
 
 	var code_lines:Array = patched_script.source_code.split("\n")
-
-	var code_index = code_lines.find("	if WeatherSystem.fog >= 0.25 and environment.background_mode == Environment.BG_SKY:")
+	
+	var class_name_index = code_lines.find("class_name BattleMove")
+	if class_name_index >= 0:
+		code_lines.remove(class_name_index)
+		
+	var code_index = code_lines.find("func call_attributes(method_name:String, args:Array)->void :")
 	if code_index >= 0:
-		# adds sandstorm visuals to environment
-		code_lines[code_index+7] = get_code("add_sandstorm")
-
+		# adds artificial weather attribute call
+		code_lines.insert(code_index+1,get_code("add_weather_attribute"))
 
 	patched_script.source_code = ""
 	for line in code_lines:
@@ -31,12 +34,10 @@ static func patch():
 static func get_code(block_name:String)->String:
 	var blocks:Dictionary = {}
 	
-	blocks["add_sandstorm"] = """
-	if WeatherSystem.fog == 0.96:
-		fog_color = lerp(Color("F3DA53"), Color("FFF8D2"), fog_color_multiplier)
-		fog_color_multiplier = 0.1
-		environment.fog_color = fog_color
-		environment.background_color = fog_color
+	blocks["add_weather_attribute"] = """
+	var weather_calculator = preload("res://mods/sticker_tiers/data/sticker_attributes/weather_calculator.tres")
+	if (method_name == "modify_damage"):
+		weather_calculator.callv(method_name, args)
 	"""
 
 	return blocks[block_name]

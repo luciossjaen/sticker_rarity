@@ -1,4 +1,4 @@
-extends StickerAttribute
+extends "res://mods/sticker_tiers/scripts/FurtherStickerAttribute.gd"
 
 export (int) var chance_min:int
 export (int) var chance_max:int

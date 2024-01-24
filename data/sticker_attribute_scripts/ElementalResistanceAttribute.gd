@@ -1,4 +1,4 @@
-extends StickerAttribute
+extends "res://mods/sticker_tiers/scripts/FurtherStickerAttribute.gd"
 
 export (Resource) var resist_type:Resource
 export (String) var toast_message:String = ""

@@ -1,4 +1,4 @@
-extends StickerAttribute
+extends "res://mods/sticker_tiers/scripts/FurtherStickerAttribute.gd"
 
 export (int) var amount:int = 1000 # treasure max value
 export (int) var chance_min:int

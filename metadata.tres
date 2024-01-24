@@ -13,6 +13,6 @@ author = "Lucioss"
 save_file_format_tag = ""
 save_file_format_tag_version = 0
 network_protocol_tag = ""
-modified_files = [ "res://data/BaseItem.gd", "res://data/item_scripts/StickerItem.gd", "res://data/StickerAttribute.gd", "res://global/ItemFactory.gd", "res://battle/ui/MoveButton.gd", "res://data/sticker_attributes/ap_refund_all.tres", "res://data/sticker_attributes/compatibility.tres", "res://data/sticker_attribute_profiles/attack.tres", "res://data/sticker_attribute_profiles/misc.tres", "res://data/sticker_attribute_profiles/status.tres", "res://data/sticker_attribute_profiles/pure_passive.tres", "res://data/sticker_attribute_profiles/pure_passive_attack.tres", "res://data/sticker_attribute_profiles/pure_passive_status.tres", "res://nodes/day_night_cycle/DayNightEnvironment.gd" ]
+modified_files = [ "res://data/BaseItem.gd", "res://data/item_scripts/StickerItem.gd", "res://data/StickerAttribute.gd", "res://global/ItemFactory.gd", "res://battle/ui/MoveButton.gd", "res://data/sticker_attributes/ap_refund_all.tres", "res://data/sticker_attributes/compatibility.tres", "res://data/sticker_attribute_profiles/attack.tres", "res://data/sticker_attribute_profiles/misc.tres", "res://data/sticker_attribute_profiles/status.tres", "res://data/sticker_attribute_profiles/pure_passive.tres", "res://data/sticker_attribute_profiles/pure_passive_attack.tres", "res://data/sticker_attribute_profiles/pure_passive_status.tres", "res://nodes/day_night_cycle/DayNightEnvironment.gd", "res://data/BattleMove.gd" ]
 modified_dirs = [  ]
 translations = [ ExtResource( 2 ) ]
