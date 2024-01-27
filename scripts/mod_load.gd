@@ -8,10 +8,8 @@ var daynightenvironment_patch = preload("res://mods/sticker_tiers/scripts/DayNig
 var battlemove_patch = preload("res://mods/sticker_tiers/scripts/BattleMove_patch.gd")
 
 var new_attributes = Datatables.load("res://mods/sticker_tiers/data/sticker_attributes/").table
+
 func _init():
-	# =========================
-	# core file patches
-	# =========================
 	
 	# adds new available rarity and ratity colors to items
 	baseitem_patch.patch()
@@ -21,10 +19,12 @@ func _init():
 	itemfactory_patch.patch()
 	# adds support for new rarities to attributes
 	stickerattribute_patch.patch()
+	
+	### disabled weather changes until fully integrated
 	# adds visuals of new sandstorm weather to system
-	daynightenvironment_patch.patch()
+	#daynightenvironment_patch.patch()
 	# adds elemental weather dis/advantages tables to battle
-	battlemove_patch.patch()
+	#battlemove_patch.patch()
 	
 	# =========================
 	# updates existing attributes
@@ -82,7 +82,7 @@ func remove_rarity_tiers():
 					item.attributes.remove(removal)
 			item["rarity"] = rarity if rarity <= 2 else 2
 	
-	corrections.push_back("~cleaned inventory data")								
+	corrections.push_back("~cleaned inventory data")
 	SaveState.inventory.set_snapshot(item_collection, 1)
 	
 	var party_snap = SaveState.party.get_snapshot()
@@ -96,7 +96,7 @@ func remove_rarity_tiers():
 			index = 0
 			removals = []
 			rarity = 0
-			for attribute in sticker.attributes:							
+			for attribute in sticker.attributes:
 				var template = load(attribute.template_path).instance()
 				# removes custom attributes
 				if "/sticker_tiers/" in attribute.template_path:
@@ -112,7 +112,7 @@ func remove_rarity_tiers():
 					sticker.attributes.remove(removal)
 			sticker["rarity"] = rarity if rarity <= 2 else 2
 				
-	corrections.push_back("~cleaned party tape data")	
+	corrections.push_back("~cleaned party tape data")
 			
 	for partner in party_snap.partners.values():
 		for tape in partner.tapes:
@@ -124,7 +124,7 @@ func remove_rarity_tiers():
 				index = 0
 				removals = []
 				rarity = 0
-				for attribute in sticker.attributes:							
+				for attribute in sticker.attributes:
 					var template = load(attribute.template_path).instance()
 					# removes custom attributes
 					if "/sticker_tiers/" in attribute.template_path:
@@ -140,7 +140,7 @@ func remove_rarity_tiers():
 						sticker.attributes.remove(removal)
 				sticker["rarity"] = rarity if rarity <= 2 else 2
 	
-	corrections.push_back("~cleaned partner tape data")					
+	corrections.push_back("~cleaned partner tape data")
 	SaveState.party.set_snapshot(party_snap, 2)
 	
 	var tape_collection = SaveState.tape_collection.get_snapshot()
@@ -153,7 +153,7 @@ func remove_rarity_tiers():
 			index = 0
 			removals = []
 			rarity = 0
-			for attribute in sticker.attributes:							
+			for attribute in sticker.attributes:
 				var template = load(attribute.template_path).instance()
 				# removes custom attributes
 				if "/sticker_tiers/" in attribute.template_path:
@@ -169,7 +169,7 @@ func remove_rarity_tiers():
 					sticker.attributes.remove(removal)
 			sticker["rarity"] = rarity if rarity <= 2 else 2
 	
-	corrections.push_back("~cleaned storage tape data")				
+	corrections.push_back("~cleaned storage tape data")
 	SaveState.tape_collection.set_snapshot(tape_collection, 1)
 				
 
@@ -233,6 +233,7 @@ func add_new_attributes():
 					if DLC.has_mod("sticker_recycle_bonus", 0):
 						DLC.mods_by_id["sticker_recycle_bonus"].attribute_dictionary[profile].push_back(attribute.instance())
 	
+	# we also have to add the new rarities to the base of Sticker Recycle Bonus to display the correct rarity in menus
 	if DLC.has_mod("sticker_recycle_bonus", 0):					
 		var stickercoresystem_patch = preload("res://mods/sticker_tiers/_compatibility/sticker_recycle_bonus/scripts/StickerCoreSystem_patch.gd")
 		stickercoresystem_patch.patch()

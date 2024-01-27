@@ -5,7 +5,7 @@ export (String) var weather_positive_toast:String = ""
 export (String) var weather_negative_toast:String = ""
 
 # this artificial attribute is added to all moves to add additional calculations to damage
-# based on the ongoing weather effect in battle. The attribute is not visible in-game and
+# based on the ongoing weather effect in battle. The attribute is not visible in-game
 
 var chance:int = 100
 
