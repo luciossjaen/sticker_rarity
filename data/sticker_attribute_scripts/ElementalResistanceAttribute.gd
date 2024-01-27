@@ -19,6 +19,7 @@ func get_description(move)->String:
 
 func notify(move, fighter, id:String, args):
 	if id == "damage_starting" and args.fighter == fighter:
+		print ("triggered elemental resistance")
 		taking_damage(args.damage)
 
 func taking_damage(damage:Damage):

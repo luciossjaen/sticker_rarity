@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
-[ext_resource path="res://mods/sticker_tiers/data/sticker_attribute_scripts/ReactionNegatorAttribute.gd" type="Script" id=1]
+[ext_resource path="res://mods/sticker_tiers/data/sticker_attribute_scripts/DebuffRemoverAttribute.gd" type="Script" id=1]
 [ext_resource path="res://data/sticker_attribute_profiles/pure_passive_attack.tres" type="Resource" id=2]
 [ext_resource path="res://data/sticker_attribute_profiles/pure_passive_status.tres" type="Resource" id=3]
 [ext_resource path="res://data/sticker_attribute_profiles/pure_passive.tres" type="Resource" id=4]
@@ -12,5 +12,6 @@ rarity = 2
 new_rarity = 4
 attribute_profile = [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ]
 chance_min = 5
-chance_max = 90
+chance_max = 10
 chance_mode = 5
+amount = 1

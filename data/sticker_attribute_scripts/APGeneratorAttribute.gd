@@ -8,7 +8,7 @@ export (int) var chance_mode:int
 var chance:int
 
 func get_description(move)->String:
-	var format = "MOVE_ATTRIBUTE_REACTION_NEGATOR"
+	var format = "MOVE_ATTRIBUTE_AP_GENERATOR"
 	return Loc.trf(format, {
 		"chance":"%+d" % chance
 	})
@@ -16,16 +16,11 @@ func get_description(move)->String:
 
 func notify(move, fighter, id:String, args):
 	if id == "damage_starting" and args.fighter == fighter:
-		remove_reaction(args.damage, fighter)
+		generate_ap(args.damage, fighter)
 
-func remove_reaction(damage:Damage, fighter):
-	if fighter.battle.rand.rand_int(100) >= chance:
-		return 
-	if damage.damage <= 0:
-		return 
-	
-	print("no reaction 4 u")	
-	damage.types.clear()
+func generate_ap(damage:Damage, fighter):
+	if fighter.status.ap < fighter.status.max_ap:
+		fighter.status.change_ap(1)
 
 func generate(move, rand:Random)->void :
 	.generate(move, rand)

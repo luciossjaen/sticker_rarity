@@ -17,8 +17,8 @@ func on_move_end(move, user, _targets, attack_params):
 
 	if user.battle.rand.rand_int(100) >= chance:
 		return 
-	var shield = WallStatus.new()
-	shield.set_decoy(get_decoy(user))
+	var shield = load("res://data/status_effects/wall_gemstone.tres")
+	#shield.set_decoy(get_decoy(user))
 	move.apply_status_effect(user, shield, amount)
 
 func generate(move, rand:Random)->void :

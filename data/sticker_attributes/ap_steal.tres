@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://mods/sticker_tiers/data/sticker_attribute_scripts/APStealAttribute.gd" type="Script" id=1]
+[ext_resource path="res://data/sticker_attribute_profiles/attack.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+weight = 100.0
+rarity = 2
+new_rarity = 4
+attribute_profile = [ ExtResource( 2 ) ]
+chance_min = 5
+chance_max = 20
+chance_mode = 8
+toast_message = "MOVE_AP_STEAL_TOAST"

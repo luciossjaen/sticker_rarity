@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://mods/sticker_tiers/_compatibility/sticker_recycle_bonus/scripts/FutherAttributeCoreItem.gd" type="Script" id=1]
-[ext_resource path="res://mods/sticker_tiers/_compatibility/sticker_recycle_bonus/sprites/epic_core.png" type="Texture" id=2]
+[ext_resource path="res://mods/sticker_tiers/_compatibility/sticker_recycle_bonus/sprites/legendary_core.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )

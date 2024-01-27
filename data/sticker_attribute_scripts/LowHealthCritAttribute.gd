@@ -8,24 +8,19 @@ export (int) var chance_mode:int
 var chance:int
 
 func get_description(move)->String:
-	var format = "MOVE_ATTRIBUTE_REACTION_NEGATOR"
+	var format = "MOVE_ATTRIBUTE_LOW_HEALTH_CRIT"
 	return Loc.trf(format, {
 		"chance":"%+d" % chance
 	})
 
 
-func notify(move, fighter, id:String, args):
-	if id == "damage_starting" and args.fighter == fighter:
-		remove_reaction(args.damage, fighter)
-
-func remove_reaction(damage:Damage, fighter):
-	if fighter.battle.rand.rand_int(100) >= chance:
-		return 
-	if damage.damage <= 0:
-		return 
+func modify_damage(_move, user, _target, damage)->void:
+	var max_hp = user.status.max_hp
+	var hp = user.status.hp
 	
-	print("no reaction 4 u")	
-	damage.types.clear()
+	if ((hp / max_hp) * 100) <= chance:
+		damage.is_critical = true
+		return 
 
 func generate(move, rand:Random)->void :
 	.generate(move, rand)

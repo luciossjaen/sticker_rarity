@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "LUCIOSS_REACTION_NEGATOR_NAME"
+name = "LUCIOS_AP_GENERATOR_NAME"
 aux_name = ""
 icon = ExtResource( 2 )
-description = "LUCIOSS_REACTION_NEGATOR_DESC"
+description = "LUCIOSS_AP_GENERATOR_DESC"
 category = "resources"
 base_stack_limit = 0
 stack_limit_category = ""
@@ -19,7 +19,7 @@ usable_contexts = 0
 battle_usage = 0
 sort_order = 0
 buffs = [  ]
-template_path = "res://mods/sticker_tiers/data/sticker_attributes/reaction_negator.tres"
+template_path = "res://mods/sticker_tiers/data/sticker_attributes/ap_generator.tres"
 attach_resource = 0
 attach_cost = 100
 upgrade_resource = 0

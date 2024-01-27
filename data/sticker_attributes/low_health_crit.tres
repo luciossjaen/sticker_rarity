@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://data/sticker_attribute_profiles/attack.tres" type="Resource" id=1]
+[ext_resource path="res://mods/sticker_tiers/data/sticker_attribute_scripts/LowHealthCritAttribute.gd" type="Script" id=2]
+
+[resource]
+script = ExtResource( 2 )
+weight = 1.0
+rarity = 2
+new_rarity = 3
+attribute_profile = [ ExtResource( 1 ) ]
+chance_min = 5
+chance_max = 25
+chance_mode = 10

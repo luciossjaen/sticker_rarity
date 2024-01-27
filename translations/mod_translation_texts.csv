@@ -1,6 +1,14 @@
 id,en
 ITEM_NAME_RARITY_3,{item_name} (Epic)
 ITEM_NAME_RARITY_4,{item_name} (Legendary)
+LUCIOSS_AP_GENERATOR_NAME,AP Generator Core
+LUCIOSS_AP_GENERATOR_DESC,AP Generator Desc
+LUCIOSS_AP_STEAL_NAME,AP Steal Core
+LUCIOSS_AP_STEAL_DESC,AP Steal Desc
+LUCIOSS_LOW_HEALTH_CRIT_NAME,Low Health Crit Name
+LUCIOSS_LOW_HEALTH_CRIT_DESC,Low Health Crit Desc
+LUCIOSS_TREASURE_TROVE_NAME,Treasure Trove Name
+LUCIOSS_TREASURE_TROVE_DESC,Treasure Trove Desc
 LUCIOSS_DURATION_EXTENDER_NAME,Duration Extender Core
 LUCIOSS_DURATION_EXTENDER_DESC,Duration Extender Desc
 LUCIOSS_DURATION_REDUCER_NAME,Duration Reducer Core
@@ -39,12 +47,16 @@ LUCIOSS_REACTION_NEGATOR_NAME,Reaction Negator Core
 LUCIOSS_REACTION_NEGATOR_DESC,Reaction Negator Desc
 LUCIOSS_TREASURE_TROVE_NAME,Treasure Trove Name
 LUCIOSS_TREASURE_TROVE_DESC,Treasure Trove Desc
+MOVE_ATTRIBUTE_LOW_HEALTH_CRIT,Guaranteed critical hit below {chance}% HP
 MOVE_ATTRIBUTE_TREASURE_TROVE,{chance}% Chance to find treasure after use
-MOVE_ATTRIBUTE_PASSIVE_WALL,{chance}% Chance to create a weak elemental wall after use
+MOVE_ATTRIBUTE_DEBUFF_REMOVAL,{chance}% Chance remove a debuff at the end of the turn
+MOVE_ATTRIBUTE_PASSIVE_WALL,{chance}% Chance to create a Gemstone Wall after use
 MOVE_ATTRIBUTE_DURATION_REDUCER,{chance}% Chance to reduce status effect durations of target by 1
 MOVE_ATTRIBUTE_DURATION_EXTENDER,{chance}% Chance to extend own status effect durations by 1
 MOVE_SANDSTORM_TOAST_TIMERS_EXTENDED,"TIMERS EXTENDED"
 MOVE_ATTRIBUTE_ELEMENTAL_RESISTANCE,{chance}% resistance from {type}-type damage
 MOVE_ATTRIBUTE_REACTION_NEGATOR,{chance}% Chance to negate reactions when taking damage
-MOVE_WEATHER_POSITIVE_TOAST,"SUPERCHARGED"
+MOVE_ATTRIBUTE_AP_GENERATOR,{chance}% Chance to generate 1 AP when hit
+MOVE_ATTRIBUTE_AP_STEAL,{chance}% Chance to drain 1 AP from target
+MOVE_WEATHER_POSITIVE_TOAST,"AMPLIFIED"
 MOVE_WEATHER_NEGATIVE_TOAST,"WEATHERED"
