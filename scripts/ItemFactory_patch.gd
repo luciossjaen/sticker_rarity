@@ -65,18 +65,18 @@ static func get_code(block_name:String)->String:
 	var blocks:Dictionary = {}
 	blocks["default_rarities"] = """
 	{weight = 0.750, value = BaseItem.Rarity.RARITY_COMMON}, 
-	{weight = 0.100, value = BaseItem.Rarity.RARITY_UNCOMMON}, 
-	{weight = 0.075, value = BaseItem.Rarity.RARITY_RARE},
-	{weight = 0.050, value = BaseItem.Rarity.RARITY_EPIC},
-	{weight = 0.025, value = BaseItem.Rarity.RARITY_LEGENDARY}
+	{weight = 0.150, value = BaseItem.Rarity.RARITY_UNCOMMON}, 
+	{weight = 0.050, value = BaseItem.Rarity.RARITY_RARE},
+	{weight = 0.040, value = BaseItem.Rarity.RARITY_EPIC},
+	{weight = 0.010, value = BaseItem.Rarity.RARITY_LEGENDARY}
 	"""
 	
 	blocks["bootleg_rarities"] = """
-	{weight = 0.050, value = BaseItem.Rarity.RARITY_COMMON}, 
-	{weight = 0.050, value = BaseItem.Rarity.RARITY_UNCOMMON}, 
-	{weight = 0.050, value = BaseItem.Rarity.RARITY_RARE},
-	{weight = 0.400, value = BaseItem.Rarity.RARITY_EPIC},
-	{weight = 0.450, value = BaseItem.Rarity.RARITY_LEGENDARY}
+	{weight = 0.100, value = BaseItem.Rarity.RARITY_COMMON}, 
+	{weight = 0.400, value = BaseItem.Rarity.RARITY_UNCOMMON}, 
+	{weight = 0.250, value = BaseItem.Rarity.RARITY_RARE},
+	{weight = 0.150, value = BaseItem.Rarity.RARITY_EPIC},
+	{weight = 0.100, value = BaseItem.Rarity.RARITY_LEGENDARY}
 	"""
 	
 	blocks["max_attributes"] = """
