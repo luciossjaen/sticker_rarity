@@ -80,13 +80,14 @@ Treasure Trove|legendary|Non-Passive|[1-10%] Chance to find treasure*.
 * Elemental Resistance can appear as any element individually.
 * The treasure is generated from the better loot pool of Treasure Dig.
 
+
 ##FAQ
 
 **Is this compatible with existing savefiles?**
-> Yes, but some of your stickers might have the wrong rarity since the attributes on existing stickers are updated, but the stickers themselves aren't since those are saved externally. To fix this, this mod provides the `update_sticker_rarities`-command. This command will scan and update the rarities of all your stickers to reflect their attribute rarities in your selected savefile.
+> Yes, but some of your stickers might have the wrong rarity since the attributes on existing stickers are updated, but the stickers themselves aren't since those are saved externally. To fix this, this mod provides the `update_sticker_rarities`-[command](https://wiki.cassettebeasts.com/wiki/Cheats#Debug_Console). This command will scan and update the rarities of all your stickers to reflect their attribute rarities in your selected savefile.
 
 **Can this mod be removed safely?**
-> Unfortunately, the mod cannot be removed without messing up the savefile, since the rarities assigned to stickers  dont exist in the game and crash it, when you try to load the game with unsupported rarities. But the mod also provides a solution for it. If you want to remove this mod safely, you can run the `cleanly_remove_rarity_tiers`-command. This command cleans up the selected savefile of all content from this mod that would crash on start-up with vanilla settings. This includes:
+> Unfortunately, the mod cannot be removed without messing up the savefile, since the rarities assigned to stickers  dont exist in the game and crash it, when you try to load the game with unsupported rarities. But the mod also provides a solution for it. If you want to remove this mod safely, you can run the `cleanly_remove_rarity_tiers`-[command](https://wiki.cassettebeasts.com/wiki/Cheats#Debug_Console). This command cleans up the selected savefile of all content from this mod that would crash on start-up with vanilla settings. This includes:
 >> - removing all modded attributes from stickers
 >> - resetting the rarities of stickers based on their remaining attributes (vanilla rarities considered)
 >> - removing overflowing attributes, if the amount does not match vanilla max. attributes (per rarity)
