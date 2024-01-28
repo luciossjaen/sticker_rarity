@@ -109,7 +109,7 @@ func update_rarity_tiers():
 						rarity = template.rarity
 				sticker["rarity"] = rarity
 	
-	updates.push_back("~cleaned partner tape data")
+	updates.push_back("~updated partner tape data")
 	SaveState.party.set_snapshot(party_snap, 2)
 	
 	# updates sticker rarities from tape storage
@@ -127,7 +127,7 @@ func update_rarity_tiers():
 					rarity = template.rarity
 			sticker["rarity"] = rarity
 	
-	updates.push_back("~cleaned storage tape data")
+	updates.push_back("~updated storage tape data")
 	SaveState.tape_collection.set_snapshot(tape_collection, 1)
 				
 
@@ -138,7 +138,8 @@ func remove_rarity_tiers():
 	var uncommons:Array = [
 		"res://data/sticker_attributes/extra_hit.tres",
 		"es://data/sticker_attributes/multitarget.tres",
-		"res://data/sticker_attributes/stat_priority_chance.tres"
+		"res://data/sticker_attributes/stat_priority_chance.tres",
+		"res://data/sticker_attributes/specialization_priority_chance.tres"
 	]
 	var item_collection = SaveState.inventory.get_snapshot()
 	var corrections:Array = []
