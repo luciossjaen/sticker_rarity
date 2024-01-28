@@ -10,7 +10,7 @@ var chance:int
 func get_description(move)->String:
 	var format = "MOVE_ATTRIBUTE_LOW_HEALTH_CRIT"
 	return Loc.trf(format, {
-		"chance":"%+d" % chance
+		"chance": chance
 	})
 
 
