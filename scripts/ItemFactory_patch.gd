@@ -64,10 +64,10 @@ static func patch():
 static func get_code(block_name:String)->String:
 	var blocks:Dictionary = {}
 	blocks["default_rarities"] = """
-	{weight = 0.750, value = BaseItem.Rarity.RARITY_COMMON}, 
-	{weight = 0.150, value = BaseItem.Rarity.RARITY_UNCOMMON}, 
+	{weight = 0.800, value = BaseItem.Rarity.RARITY_COMMON}, 
+	{weight = 0.125, value = BaseItem.Rarity.RARITY_UNCOMMON}, 
 	{weight = 0.050, value = BaseItem.Rarity.RARITY_RARE},
-	{weight = 0.040, value = BaseItem.Rarity.RARITY_EPIC},
+	{weight = 0.015, value = BaseItem.Rarity.RARITY_EPIC},
 	{weight = 0.010, value = BaseItem.Rarity.RARITY_LEGENDARY}
 	"""
 	
