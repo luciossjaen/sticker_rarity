@@ -2,61 +2,61 @@ id,en
 ITEM_NAME_RARITY_3,{item_name} (Epic)
 ITEM_NAME_RARITY_4,{item_name} (Legendary)
 LUCIOSS_AP_GENERATOR_NAME,AP Generator Core
-LUCIOSS_AP_GENERATOR_DESC,AP Generator Desc
-LUCIOSS_AP_STEAL_NAME,AP Steal Core
-LUCIOSS_AP_STEAL_DESC,AP Steal Desc
-LUCIOSS_LOW_HEALTH_CRIT_NAME,Low Health Crit Name
-LUCIOSS_LOW_HEALTH_CRIT_DESC,Low Health Crit Desc
-LUCIOSS_TREASURE_TROVE_NAME,Treasure Trove Name
-LUCIOSS_TREASURE_TROVE_DESC,Treasure Trove Desc
-LUCIOSS_DURATION_EXTENDER_NAME,Duration Extender Core
-LUCIOSS_DURATION_EXTENDER_DESC,Duration Extender Desc
-LUCIOSS_DURATION_REDUCER_NAME,Duration Reducer Core
-LUCIOSS_DURATION_REDUCER_DESC,Duration Reducer Desc
-LUCIOSS_ELEMRES_AIR_NAME,Air Resistance Core
-LUCIOSS_ELEMRES_AIR_DESC,Air Resistance Desc
-LUCIOSS_ELEMRES_ASTRAL_NAME,Astral Resistance Core
-LUCIOSS_ELEMRES_ASTRAL_DESC,Astral Resistance Desc
-LUCIOSS_ELEMRES_BEAST_NAME,Beast Resistance Core
-LUCIOSS_ELEMRES_BEAST_DESC,Beast Resistance Desc
-LUCIOSS_ELEMRES_EARTH_NAME,Earth Resistance Core
-LUCIOSS_ELEMRES_EARTH_DESC,Earth Resistance Desc
-LUCIOSS_ELEMRES_FIRE_NAME,Fire Resistance Core
-LUCIOSS_ELEMRES_FIRE_DESC,Fire Resistance Desc
-LUCIOSS_ELEMRES_GLASS_NAME,Glass Resistance Core
-LUCIOSS_ELEMRES_GLASS_DESC,Glass Resistance Desc
-LUCIOSS_ELEMRES_GLITTER_NAME,Glitter Resistance Core
-LUCIOSS_ELEMRES_GLITTER_DESC,Glitter Resistance Desc
-LUCIOSS_ELEMRES_ICE_NAME,Ice Resistance Core
-LUCIOSS_ELEMRES_ICE_DESC,Ice Resistance Desc
-LUCIOSS_ELEMRES_LIGHTNING_NAME,Lightning Resistance Core
-LUCIOSS_ELEMRES_LIGHTNING_DESC,Lightning Resistance Desc
-LUCIOSS_ELEMRES_METAL_NAME,Metal Resistance Core
-LUCIOSS_ELEMRES_METAL_DESC,Metal Resistance Desc
-LUCIOSS_ELEMRES_PLANT_NAME,Plant Resistance Core
-LUCIOSS_ELEMRES_PLANT_DESC,Plant Resistance Desc
-LUCIOSS_ELEMRES_PLASTIC_NAME,Plastic Resistance Core
-LUCIOSS_ELEMRES_PLASTIC_DESC,Plastic Resistance Desc
-LUCIOSS_ELEMRES_POISON_NAME,Poison Resistance Core
-LUCIOSS_ELEMRES_POISON_DESC,Poison Resistance Desc
-LUCIOSS_ELEMRES_WATER_NAME,Water Resistance Core
-LUCIOSS_ELEMRES_WATER_DESC,Water Resistance Desc
-LUCIOSS_PASSIVE_WALL_NAME,Passive Wall Core
-LUCIOSS_PASSIVE_WALL_DESC,Passive Wall Desc
-LUCIOSS_REACTION_NEGATOR_NAME,Reaction Negator Core
-LUCIOSS_REACTION_NEGATOR_DESC,Reaction Negator Desc
-LUCIOSS_TREASURE_TROVE_NAME,Treasure Trove Name
-LUCIOSS_TREASURE_TROVE_DESC,Treasure Trove Desc
-MOVE_ATTRIBUTE_LOW_HEALTH_CRIT,Guaranteed critical hit below {chance}% HP
-MOVE_ATTRIBUTE_TREASURE_TROVE,{chance}% Chance to find treasure after use
-MOVE_ATTRIBUTE_DEBUFF_REMOVAL,{chance}% Chance remove a debuff at the end of the turn
-MOVE_ATTRIBUTE_PASSIVE_WALL,{chance}% Chance to create a Gemstone Wall after use
-MOVE_ATTRIBUTE_DURATION_REDUCER,{chance}% Chance to reduce status effect durations of target by 1
-MOVE_ATTRIBUTE_DURATION_EXTENDER,{chance}% Chance to extend own status effect durations by 1
-MOVE_SANDSTORM_TOAST_TIMERS_EXTENDED,"TIMERS EXTENDED"
-MOVE_ATTRIBUTE_ELEMENTAL_RESISTANCE,{chance}% resistance from {type}-type damage
-MOVE_ATTRIBUTE_REACTION_NEGATOR,{chance}% Chance to negate reactions when taking damage
+LUCIOSS_AP_GENERATOR_DESC,Adds [color=#{rarity}][up to 15% Chance to generate 1 AP when hit][/color] attribute when attached to a compatible sticker.
 MOVE_ATTRIBUTE_AP_GENERATOR,{chance}% Chance to generate 1 AP when hit
+LUCIOSS_AP_STEAL_NAME,AP Steal Core
+LUCIOSS_AP_STEAL_DESC,Adds [color=#{rarity}][up to 20% Chance to drain 1 AP from target][/color] attribute when attached to a compatible sticker.
 MOVE_ATTRIBUTE_AP_STEAL,{chance}% Chance to drain 1 AP from target
+LUCIOSS_LOW_HEALTH_CRIT_NAME,Low Health Crit Core
+LUCIOSS_LOW_HEALTH_CRIT_DESC,Adds [color=#{rarity}][guaranteed critical hit below 25% (or less) HP][/color] attribute when attached to a compatible sticker.
+MOVE_ATTRIBUTE_LOW_HEALTH_CRIT,Guaranteed critical hit below {chance}% HP
+LUCIOSS_TREASURE_TROVE_NAME,Treasure Trove Core
+LUCIOSS_TREASURE_TROVE_DESC,Adds [color=#{rarity}][up to 10% Chance to find treasure][/color] attribute when attached to a compatible sticker.
+MOVE_ATTRIBUTE_TREASURE_TROVE,{chance}% Chance to find treasure
+LUCIOSS_DURATION_EXTENDER_NAME,Duration Extender Core
+LUCIOSS_DURATION_EXTENDER_DESC,Adds [color=#{rarity}][up to 25% Chance to extend own status effect durations by 1][/color] attribute when attached to a compatible sticker.
+MOVE_ATTRIBUTE_DURATION_EXTENDER,{chance}% Chance to extend own status effect durations by 1
+LUCIOSS_DURATION_REDUCER_NAME,Duration Reducer Core
+LUCIOSS_DURATION_REDUCER_DESC,Adds [color=#{rarity}][up to 25% Chance to reduce status effect durations of target by 1][/color] attribute when attached to a compatible sticker.
+MOVE_ATTRIBUTE_DURATION_REDUCER,{chance}% Chance to reduce status effect durations of target by 1
+LUCIOSS_ELEMRES_AIR_NAME,Air Resistance Core
+LUCIOSS_ELEMRES_AIR_DESC,Adds [color=#{rarity}][up to 15% resistance from Air-type damage][/color] attribute when attached to a compatible sticker.
+LUCIOSS_ELEMRES_ASTRAL_NAME,Astral Resistance Core
+LUCIOSS_ELEMRES_ASTRAL_DESC,Adds [color=#{rarity}][up to 15% resistance from Astral-type damage][/color] attribute when attached to a compatible sticker.
+LUCIOSS_ELEMRES_BEAST_NAME,Beast Resistance Core
+LUCIOSS_ELEMRES_BEAST_DESC,Adds [color=#{rarity}][up to 15% resistance from Beast-type damage][/color] attribute when attached to a compatible sticker.
+LUCIOSS_ELEMRES_EARTH_NAME,Earth Resistance Core
+LUCIOSS_ELEMRES_EARTH_DESC,Adds [color=#{rarity}][up to 15% resistance from Earth-type damage][/color] attribute when attached to a compatible sticker.
+LUCIOSS_ELEMRES_FIRE_NAME,Fire Resistance Core
+LUCIOSS_ELEMRES_FIRE_DESC,Adds [color=#{rarity}][up to 15% resistance from Fire-type damage][/color] attribute when attached to a compatible sticker.
+LUCIOSS_ELEMRES_GLASS_NAME,Glass Resistance Core
+LUCIOSS_ELEMRES_GLASS_DESC,Adds [color=#{rarity}][up to 15% resistance from Glass-type damage][/color] attribute when attached to a compatible sticker.
+LUCIOSS_ELEMRES_GLITTER_NAME,Glitter Resistance Core
+LUCIOSS_ELEMRES_GLITTER_DESC,Adds [color=#{rarity}][up to 15% resistance from Glitter-type damage][/color] attribute when attached to a compatible sticker.
+LUCIOSS_ELEMRES_ICE_NAME,Ice Resistance Core
+LUCIOSS_ELEMRES_ICE_DESC,Adds [color=#{rarity}][up to 15% resistance from Ice-type damage][/color] attribute when attached to a compatible sticker.
+LUCIOSS_ELEMRES_LIGHTNING_NAME,Lightning Resistance Core
+LUCIOSS_ELEMRES_LIGHTNING_DESC,Adds [color=#{rarity}][up to 15% resistance from Lightning-type damage][/color] attribute when attached to a compatible sticker.
+LUCIOSS_ELEMRES_METAL_NAME,Metal Resistance Core
+LUCIOSS_ELEMRES_METAL_DESC,Adds [color=#{rarity}][up to 15% resistance from Metal-type damage][/color] attribute when attached to a compatible sticker.
+LUCIOSS_ELEMRES_PLANT_NAME,Plant Resistance Core
+LUCIOSS_ELEMRES_PLANT_DESC,Adds [color=#{rarity}][up to 15% resistance from Plant-type damage][/color] attribute when attached to a compatible sticker.
+LUCIOSS_ELEMRES_PLASTIC_NAME,Plastic Resistance Core
+LUCIOSS_ELEMRES_PLASTIC_DESC,Adds [color=#{rarity}][up to 15% resistance from Plastic-type damage][/color] attribute when attached to a compatible sticker.
+LUCIOSS_ELEMRES_POISON_NAME,Poison Resistance Core
+LUCIOSS_ELEMRES_POISON_DESC,Adds [color=#{rarity}][up to 15% resistance from Poison-type damage][/color] attribute when attached to a compatible sticker.
+LUCIOSS_ELEMRES_WATER_NAME,Water Resistance Core
+LUCIOSS_ELEMRES_WATER_DESC,Adds [color=#{rarity}][up to 15% resistance from Water-type damage][/color] attribute when attached to a compatible sticker.
+MOVE_ATTRIBUTE_ELEMENTAL_RESISTANCE,{chance}% resistance from {type}-type damage
+LUCIOSS_PASSIVE_WALL_NAME,Gemstone Wall Core
+LUCIOSS_PASSIVE_WALL_DESC,Adds [color=#{rarity}][up to 25% Chance to create a Gemstone Wall][/color] attribute when attached to a compatible sticker.
+MOVE_ATTRIBUTE_PASSIVE_WALL,{chance}% Chance to create a Gemstone Wall
+LUCIOSS_REACTION_NEGATOR_NAME,Reaction Negator Core
+LUCIOSS_REACTION_NEGATOR_DESC,Adds [color=#{rarity}][up to 20% Chance to negate reactions when hit][/color] attribute when attached to a compatible sticker.
+MOVE_ATTRIBUTE_REACTION_NEGATOR,{chance}% Chance to negate reactions when hit
+LUCIOSS_DEBUFF_REMOVAL_NAME,Debuff Removal Core
+LUCIOSS_DEBUFF_REMOVAL_DESC,Adds [color=#{rarity}][up to 10% Chance remove a debuff at the end of the turn][/color] attribute when attached to a compatible sticker.
+MOVE_ATTRIBUTE_DEBUFF_REMOVAL,{chance}% Chance remove a debuff at the end of the turn
+MOVE_SANDSTORM_TOAST_TIMERS_EXTENDED,"TIMERS EXTENDED"
 MOVE_WEATHER_POSITIVE_TOAST,"AMPLIFIED"
 MOVE_WEATHER_NEGATIVE_TOAST,"WEATHERED"
