@@ -12,5 +12,5 @@ rarity = 2
 new_rarity = 4
 attribute_profile = [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ]
 chance_min = 5
-chance_max = 90
-chance_mode = 5
+chance_max = 20
+chance_mode = 8

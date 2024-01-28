@@ -19,3 +19,13 @@ func get_name()->String:
 func get_rarity():
 	var attribute:StickerAttribute = load(template_path)
 	return attribute.rarity
+	
+func get_description():
+	return Loc.trf(description, {
+		"material":get_attach_resource().icon.resource_path,
+		"upgrade_material":get_upgrade_resource().icon.resource_path,
+		"cost":attach_cost,
+		"upgrade_cost":upgrade_cost,
+		"core_cost":core_cost,
+		"rarity":get_template_rarity_color()
+	})

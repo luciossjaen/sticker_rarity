@@ -5,11 +5,11 @@
 
 [resource]
 script = ExtResource( 1 )
-weight = 100.0
+weight = 1.0
 rarity = 2
 new_rarity = 4
 attribute_profile = [ ExtResource( 2 ) ]
 chance_min = 5
-chance_max = 20
+chance_max = 15
 chance_mode = 8
 toast_message = "MOVE_AP_STEAL_TOAST"
