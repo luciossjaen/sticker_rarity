@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://mods/sticker_tiers/data/sticker_attribute_scripts/_WeatherCalculator.gd" type="Script" id=1]
+[ext_resource path="res://mods/sticker_tiers/data/weather_state_collector.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+weight = 0.0
+rarity = 0
+weather_state_collector = ExtResource( 2 )
+weather_positive_toast = "MOVE_WEATHER_POSITIVE_TOAST"
+weather_negative_toast = "MOVE_WEATHER_NEGATIVE_TOAST"

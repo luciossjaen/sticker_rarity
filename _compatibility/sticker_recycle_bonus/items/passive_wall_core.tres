@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://mods/sticker_tiers/_compatibility/sticker_recycle_bonus/scripts/FutherAttributeCoreItem.gd" type="Script" id=1]
+[ext_resource path="res://mods/sticker_tiers/_compatibility/sticker_recycle_bonus/sprites/epic_core.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "LUCIOSS_PASSIVE_WALL_NAME"
+aux_name = ""
+icon = ExtResource( 2 )
+description = "LUCIOSS_PASSIVE_WALL_DESC"
+category = "resources"
+base_stack_limit = 0
+stack_limit_category = ""
+consume_on_use = false
+discardable = false
+value = 1000
+usable_contexts = 0
+battle_usage = 0
+sort_order = 0
+buffs = [  ]
+template_path = "res://mods/sticker_tiers/data/sticker_attributes/passive_wall.tres"
+attach_resource = 15
+attach_cost = 12
+upgrade_resource = 15
+upgrade_cost = 4
+drop_chance = 55
+core_cost = 2

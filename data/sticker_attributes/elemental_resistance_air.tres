@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://mods/sticker_tiers/data/sticker_attribute_scripts/ElementalResistanceAttribute.gd" type="Script" id=1]
+[ext_resource path="res://data/elemental_types/air.tres" type="Resource" id=2]
+[ext_resource path="res://data/sticker_attribute_profiles/pure_passive_status.tres" type="Resource" id=3]
+[ext_resource path="res://data/sticker_attribute_profiles/pure_passive_attack.tres" type="Resource" id=4]
+[ext_resource path="res://data/sticker_attribute_profiles/pure_passive.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 1 )
+weight = 0.1
+rarity = 2
+new_rarity = 3
+attribute_profile = [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ]
+resist_type = ExtResource( 2 )
+toast_message = "MOVE_ELEMENTAL_RESISTANCE_TOAST"
+chance_min = 5
+chance_max = 15
+chance_mode = 10

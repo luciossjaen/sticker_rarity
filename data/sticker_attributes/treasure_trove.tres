@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://mods/sticker_tiers/data/sticker_attribute_scripts/TreasureTroveAttribute.gd" type="Script" id=1]
+[ext_resource path="res://data/loot_tables/picksie_treasure_dig_high_level.tres" type="Resource" id=2]
+[ext_resource path="res://data/sticker_attribute_profiles/misc.tres" type="Resource" id=3]
+[ext_resource path="res://data/sticker_attribute_profiles/status.tres" type="Resource" id=4]
+[ext_resource path="res://data/sticker_attribute_profiles/attack.tres" type="Resource" id=5]
+[ext_resource path="res://data/sticker_attribute_profiles/summon.tres" type="Resource" id=6]
+
+[resource]
+script = ExtResource( 1 )
+weight = 1.0
+rarity = 2
+new_rarity = 4
+attribute_profile = [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ) ]
+amount = 1000
+chance_min = 1
+chance_max = 10
+chance_mode = 5
+loot_table = ExtResource( 2 )
+toast_color = Color( 0.945098, 0.760784, 0.333333, 1 )

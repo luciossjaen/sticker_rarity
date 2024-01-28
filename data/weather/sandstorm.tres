@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://data/Weather.gd" type="Script" id=1]
+[ext_resource path="res://mods/sticker_tiers/nodes/weather/leaves/sand_particle.png" type="Texture" id=2]
+[ext_resource path="res://data/elemental_types/earth.tres" type="Resource" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "WEATHER_SANDSTORM"
+pollen = 1.0
+snow = 0.0
+rain = 0.0
+wind = 1.0
+clouds = 0.5
+fog = 0.96
+leaves = 1.0
+wind_angle = 45.0
+leaf_texture = ExtResource( 2 )
+elemental_type = ExtResource( 3 )

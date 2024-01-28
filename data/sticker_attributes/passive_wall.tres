@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://mods/sticker_tiers/data/sticker_attribute_scripts/PassiveWallAttribute.gd" type="Script" id=1]
+[ext_resource path="res://data/sticker_attribute_profiles/misc.tres" type="Resource" id=2]
+[ext_resource path="res://data/sticker_attribute_profiles/status.tres" type="Resource" id=3]
+[ext_resource path="res://data/sticker_attribute_profiles/attack.tres" type="Resource" id=4]
+[ext_resource path="res://data/sticker_attribute_profiles/summon.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 1 )
+weight = 1.0
+rarity = 2
+new_rarity = 3
+attribute_profile = [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ) ]
+chance_min = 15
+chance_max = 25
+chance_mode = 15
+amount = 3

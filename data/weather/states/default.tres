@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://mods/sticker_tiers/data/WeatherState.gd" type="Script" id=1]
+[ext_resource path="res://data/elemental_types/glass.tres" type="Resource" id=2]
+[ext_resource path="res://data/weather/default.tres" type="Resource" id=3]
+[ext_resource path="res://data/elemental_types/beast.tres" type="Resource" id=4]
+[ext_resource path="res://data/elemental_types/plastic.tres" type="Resource" id=5]
+[ext_resource path="res://data/elemental_types/earth.tres" type="Resource" id=6]
+
+[resource]
+script = ExtResource( 1 )
+weather = ExtResource( 3 )
+element_kinds = [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ) ]
+element_mod = [ 0.2, 0.2, -0.2, 0.5 ]
