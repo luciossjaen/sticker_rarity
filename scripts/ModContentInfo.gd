@@ -52,13 +52,100 @@ func register_commands():
 			"args":[],
 			"target":[self, "remove_rarity_tiers"]
 		})
+	Console.register("update_sticker_rarities", {
+			"description":"Updates the sticker rarities of the current savefile to reflect the attached attributes",
+			"args":[],
+			"target":[self, "update_rarity_tiers"]
+		})
+		
+# updates stickers in current savefile with the correct rarity based on attached stickers
+func update_rarity_tiers():
+	var item_collection = SaveState.inventory.get_snapshot()
+	var updates:Array = []
+	var rarity = null
+	# updates rarities from sticker in inventory
+	for item in item_collection.items:
+		if item.has("sticker"):
+			rarity = 0
+			for attribute in item.attributes:
+				var template = load(attribute.template_path).instance()				
+				if template.rarity > rarity:
+					rarity = template.rarity
+			item["rarity"] = rarity
+	
+	updates.push_back("~updated inventory data")
+	SaveState.inventory.set_snapshot(item_collection, 1)
+	
+	var party_snap = SaveState.party.get_snapshot()
+
+	# updates sticker rarities from current party
+	for tape in party_snap.player.tapes:
+		for sticker in tape.stickers:
+			if sticker == null:
+				continue
+			if not sticker.get("attributes"):
+				continue
+			rarity = 0
+			for attribute in sticker.attributes:
+				var template = load(attribute.template_path).instance()				
+				if template.rarity > rarity:
+					rarity = template.rarity
+			sticker["rarity"] = rarity
+				
+	updates.push_back("~updated party tape data")
+		
+	# updates sticker rarities from partners
+	for partner in party_snap.partners.values():
+		for tape in partner.tapes:
+			for sticker in tape.stickers:
+				if sticker == null:
+					continue
+				if not sticker.get("attributes"):
+					continue
+				rarity = 0
+				for attribute in sticker.attributes:
+					var template = load(attribute.template_path).instance()				
+					if template.rarity > rarity:
+						rarity = template.rarity
+				sticker["rarity"] = rarity
+	
+	updates.push_back("~cleaned partner tape data")
+	SaveState.party.set_snapshot(party_snap, 2)
+	
+	# updates sticker rarities from tape storage
+	var tape_collection = SaveState.tape_collection.get_snapshot()
+	for tape in tape_collection.tapes:
+		for sticker in tape.stickers:
+			if sticker == null:
+				continue
+			if not sticker.get("attributes"):
+				continue
+			rarity = 0
+			for attribute in sticker.attributes:
+				var template = load(attribute.template_path).instance()				
+				if template.rarity > rarity:
+					rarity = template.rarity
+			sticker["rarity"] = rarity
+	
+	updates.push_back("~cleaned storage tape data")
+	SaveState.tape_collection.set_snapshot(tape_collection, 1)
+				
+
+	return updates
+	pass
 		
 func remove_rarity_tiers():
+	var uncommons:Array = [
+		"res://data/sticker_attributes/extra_hit.tres",
+		"es://data/sticker_attributes/multitarget.tres",
+		"res://data/sticker_attributes/stat_priority_chance.tres"
+	]
 	var item_collection = SaveState.inventory.get_snapshot()
 	var corrections:Array = []
 	var removals:Array = []
 	var index:int = 0
 	var rarity = null
+	var uncommon_count = 0
 	
 	# removes custom attributes and rarities from sticker in inventory
 	for item in item_collection.items:
@@ -66,6 +153,7 @@ func remove_rarity_tiers():
 			index = 0
 			removals = []
 			rarity = 0
+			uncommon_count = 0
 			for attribute in item.attributes:
 				var template = load(attribute.template_path).instance()
 				# removes custom attributes
@@ -73,7 +161,13 @@ func remove_rarity_tiers():
 					removals.append(index)
 				# and updates sticker rarity to highest remaining attribute
 				else:
-					if  template.rarity > rarity:
+					# trying to restore standard max attribute values (rares)
+					if rarity == 2 and template.rarity >=2:
+						removals.append(index)
+					# resets rarity for modified default uncommon attributes					
+					if uncommons.has(attribute.template_path) and rarity != 2:
+						rarity = 1						
+					elif template.rarity > rarity:
 						rarity = template.rarity
 				index += 1
 			if removals.size() > 0:
@@ -97,6 +191,7 @@ func remove_rarity_tiers():
 			index = 0
 			removals = []
 			rarity = 0
+			uncommon_count = 0
 			for attribute in sticker.attributes:
 				var template = load(attribute.template_path).instance()
 				# removes custom attributes
@@ -104,8 +199,20 @@ func remove_rarity_tiers():
 					removals.append(index)
 				# and updates sticker rarity to highest remaining attribute
 				else:
-					if  template.rarity > rarity:
+					if template.rarity == 1:
+						uncommon_count += 1
+					# trying to restore standard max attribute values (rares)
+					if rarity == 2 and template.rarity >=2:
+						removals.append(index)
+					# resets rarity for modified default uncommon attributes
+					if uncommons.has(attribute.template_path) and rarity != 2:
+						rarity = 1
+						uncommon_count += 1						
+					elif template.rarity > rarity:
 						rarity = template.rarity
+					# trying to restore standard max attribute values (uncommon)
+					if uncommon_count > 2:
+						removals.append(index)
 				index += 1
 			if removals.size() > 0:
 				removals.invert()
@@ -126,6 +233,7 @@ func remove_rarity_tiers():
 				index = 0
 				removals = []
 				rarity = 0
+				uncommon_count = 0
 				for attribute in sticker.attributes:
 					var template = load(attribute.template_path).instance()
 					# removes custom attributes
@@ -133,8 +241,20 @@ func remove_rarity_tiers():
 						removals.append(index)
 					# and updates sticker rarity to highest remaining attribute
 					else:
-						if  template.rarity > rarity:
+						if template.rarity == 1:
+							uncommon_count += 1
+						# trying to restore standard max attribute values (rares)
+						if rarity == 2 and template.rarity >=2:
+							removals.append(index)
+						# resets rarity for modified default uncommon attributes
+						if uncommons.has(attribute.template_path) and rarity != 2:
+							rarity = 1
+							uncommon_count += 1						
+						elif template.rarity > rarity:
 							rarity = template.rarity
+						# trying to restore standard max attribute values (uncommon)
+						if uncommon_count > 2:
+							removals.append(index)
 					index += 1
 				if removals.size() > 0:
 					removals.invert()
@@ -156,6 +276,7 @@ func remove_rarity_tiers():
 			index = 0
 			removals = []
 			rarity = 0
+			uncommon_count = 0
 			for attribute in sticker.attributes:
 				var template = load(attribute.template_path).instance()
 				# removes custom attributes
@@ -163,8 +284,20 @@ func remove_rarity_tiers():
 					removals.append(index)
 				# and updates sticker rarity to highest remaining attribute
 				else:
-					if  template.rarity > rarity:
+					if template.rarity == 1:
+						uncommon_count += 1
+					# trying to restore standard max attribute values (rares)
+					if rarity == 2 and template.rarity >=2:
+						removals.append(index)
+					# resets rarity for modified default uncommon attributes
+					if uncommons.has(attribute.template_path) and rarity != 2:
+						rarity = 1
+						uncommon_count += 1						
+					elif template.rarity > rarity:
 						rarity = template.rarity
+					# trying to restore standard max attribute values (uncommon)
+					if uncommon_count > 2:
+						removals.append(index)
 				index += 1
 			if removals.size() > 0:
 				removals.invert()
@@ -177,7 +310,6 @@ func remove_rarity_tiers():
 				
 
 	return corrections
-	pass
 	
 func update_existing_attribute_rarities():
 	var extra_hit = preload("res://data/sticker_attributes/extra_hit.tres")
@@ -187,6 +319,9 @@ func update_existing_attribute_rarities():
 	var stat_prio_chance = preload("res://data/sticker_attributes/stat_priority_chance.tres")
 	stat_prio_chance.rarity = 2
 	stat_prio_chance.weight = 1
+	var spec_prio_chance = preload("res://data/sticker_attributes/specialization_priority_chance.tres")
+	spec_prio_chance.rarity = 2
+	spec_prio_chance.weight = 1
 	
 	var ap_one = preload("res://data/sticker_attributes/ap_refund_1.tres")
 	ap_one.rarity = 3
@@ -249,7 +384,7 @@ func add_new_attributes():
 		var attributecoreitem_patch = preload("res://mods/sticker_tiers/_compatibility/sticker_recycle_bonus/scripts/AttributeCoreItem_patch.gd")
 		stickercoresystem_patch.patch()
 		attributecoreitem_patch.patch()
-		pass
+	
 	
 	
 	
